@@ -14,7 +14,7 @@ import { UserSelfGuard } from '../guards/user-self.guard';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @ApiOperation({ summary: 'Register customer'})
+  @ApiOperation({ summary: 'Register user'})
   @ApiResponse({ status: 201, type: Users})
   @Post('signup')
   registration(
@@ -24,7 +24,7 @@ export class UsersController {
     return this.usersService.registration(createUserDto, res);
   };
 
-  @ApiOperation({ summary: 'Login customer'})
+  @ApiOperation({ summary: 'Login user'})
   @ApiResponse({ status: 200, type: Users})
   @HttpCode(HttpStatus.OK)
   @Post('signin')
@@ -35,7 +35,7 @@ export class UsersController {
     return this.usersService.login(loginUserDto, res);
   };
   
-  @ApiOperation({summary: 'Logout customer'})
+  @ApiOperation({summary: 'Logout user'})
   @UseGuards(JwtAuthGuard)
   @ApiResponse({status: 200, type: Users})
   @HttpCode(HttpStatus.OK)
@@ -71,7 +71,6 @@ export class UsersController {
   };
 
   @ApiOperation({summary: "Get all customers"})
-  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.usersService.findAll();

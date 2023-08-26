@@ -6,12 +6,9 @@ import { Payments } from "../../payments/models/payment.model";
 interface OrderCreationAttrs{
     userId: number;
     productId: number;
-    statusId: string;
     amount: number;
     pricePerItems: number
     totalPrice: string;
-    address: string;
-    zipCode: string;
 };
 
 @Table({tableName: 'order'})
@@ -36,12 +33,6 @@ export class Order extends Model<Order, OrderCreationAttrs> {
     productId: number;
 
     @Column({
-        type: DataType.DATE,
-        defaultValue: new Date()
-    })
-    date: Date;
-
-    @Column({
         type: DataType.INTEGER,
     })
     amount: number;
@@ -55,16 +46,6 @@ export class Order extends Model<Order, OrderCreationAttrs> {
         type: DataType.STRING,
     })
     totalPrice: string;
-
-    @Column({
-        type: DataType.STRING,
-    })
-    address: string;
-
-    @Column({
-        type: DataType.INTEGER,
-    })
-    zipCode: number;
 
     @HasMany(() => Payments)
     payments: Payments;

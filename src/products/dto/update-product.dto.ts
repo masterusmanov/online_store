@@ -6,10 +6,6 @@ export class UpdateProductDto {
     @IsString()
     readonly productName?: string;
 
-    @ApiProperty({ example: 'New or Different', description: 'The product is new or used'})
-    @IsString()
-    readonly newOrDifferent?: string;
-    
     @ApiProperty({ example: '2290000 sum or 200$', description: 'Product price'})
     @IsString()
     readonly price?: string;

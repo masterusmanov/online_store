@@ -7,6 +7,7 @@ import { CartItems } from "../../cart_items/models/cart_item.model";
 interface ShoppingCartsCreationAttrs{
     userId: number;
     productId: number;
+    cartItemsId: number;
 };
 
 @Table({tableName: 'shopping_carts'})
@@ -29,6 +30,12 @@ export class ShoppingCarts extends Model<ShoppingCarts, ShoppingCartsCreationAtt
         type: DataType.INTEGER,
     })
     productId: number;
+
+    @ForeignKey(() => CartItems)
+    @Column({
+        type: DataType.INTEGER,
+    })
+    cartItemsId: number;
 
     @HasMany(() => CartItems)
     cartItems: CartItems

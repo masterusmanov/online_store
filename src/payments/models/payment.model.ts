@@ -5,8 +5,6 @@ import { PaymentMethod } from "../../payment_method/models/payment_method.model"
 interface PaymentsCreationAttrs{
     orderId: number;
     paymentTypeId: number;
-    paymentTime: Date;
-    paymenAmount: number;
 };
 
 @Table({tableName: 'payments'})
@@ -29,17 +27,6 @@ export class Payments extends Model<Payments, PaymentsCreationAttrs> {
         type: DataType.INTEGER
     })
     paymentMethodId: number;
-
-    @Column({
-        type: DataType.DATE,
-        defaultValue: new Date()
-    })
-    paymentTime: Date;
-
-    @Column({
-        type: DataType.INTEGER,
-    })
-    paymentAmount: number;
 
     @BelongsTo(() => Order)
     order: Order;

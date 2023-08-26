@@ -1,8 +1,10 @@
 import { Column, DataType, Model, Table, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { ShoppingCarts } from "../../shopping_carts/models/shopping_cart.model";
+import { Order } from "src/orders/models/order.model";
 
 interface CartItemsCreationAttrs{
-    cartId: number;
+    orderId: number;
+    shoppingcarts: number;
     amount: number;
 };
 
@@ -19,7 +21,13 @@ export class CartItems extends Model<CartItems, CartItemsCreationAttrs> {
     @Column({
         type: DataType.INTEGER
     })
-    cartId: number
+    orderId: number
+
+    @ForeignKey(() => ShoppingCarts)
+    @Column({
+        type: DataType.INTEGER
+    })
+    shoppingcarts: number
 
     @Column({
         type: DataType.INTEGER,
@@ -28,5 +36,8 @@ export class CartItems extends Model<CartItems, CartItemsCreationAttrs> {
 
     @BelongsTo(() => ShoppingCarts)
     shoppingCart: ShoppingCarts
+
+    @BelongsTo(() => Order)
+    order: Order
 
 }

@@ -4,7 +4,6 @@ import { Category } from "src/category/models/category.model";
 
 interface ProductCreationAttrs{
     productName: string;
-    newOrDifferent: string;
     price: string;
     stock: string;
     categoryId: number;
@@ -42,7 +41,4 @@ export class Product extends Model<Product, ProductCreationAttrs> {
 
     @BelongsTo(() => Category)
     category: Category;
-
-   
-
 }
