@@ -23,7 +23,7 @@ export class CreateUserDto {
     
     @ApiProperty({ example: '912345678', description: 'Customer phone number'})
     @IsPhoneNumber()
-    readonly phoneNumber: string;
+    readonly phone_number: string;
     
     @ApiProperty({ example: 'P@$$w00rd', description: 'Customer password'})
     @IsStrongPassword()
@@ -33,5 +33,5 @@ export class CreateUserDto {
     @ApiProperty({ example: 'P@$$w00rd', description: 'Customer repeat password'})
     @IsStrongPassword()
     @MinLength(8)
-    readonly confirmPassword: string;
+    readonly confirm_password: string;
 }

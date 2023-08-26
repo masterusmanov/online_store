@@ -5,7 +5,7 @@ import { IsString } from "class-validator";
 export class UpdateCategoryDto {
     @ApiProperty({ example: 'Household appliances', description: 'Product category'})
     @IsString()
-    readonly productCategory?: string;
+    readonly product_category?: string;
 
     @ApiProperty({ example: 'Refrigerator', description: 'Description'})
     @IsString()

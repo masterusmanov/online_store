@@ -1,5 +1,4 @@
 import { ApiProperty } from "@nestjs/swagger";
-
 import { IsString, IsDate, IsNumber } from "class-validator";
 
 export class UpdateOrderDto {
@@ -17,13 +16,5 @@ export class UpdateOrderDto {
     
     @ApiProperty({ example: 'Total price', description: 'The total price of the order'})
     @IsString()
-    totalPrice?: string;
-
-    @ApiProperty({ example: 'Tashkent city, Chilonzor district, street Qatortol', description: 'Order address'})
-    @IsString()
-    address?: string;
-    
-    @ApiProperty({ example: '160900', description: 'Postal code of the customer'})
-    @IsString()
-    zipCode?: string;
+    total_price?: string;
 }

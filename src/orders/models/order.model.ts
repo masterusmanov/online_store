@@ -4,11 +4,11 @@ import { Product } from "../../products/models/product.model";
 import { Payments } from "../../payments/models/payment.model";
 
 interface OrderCreationAttrs{
-    userId: number;
-    productId: number;
+    user_id: number;
+    product_id: number;
     amount: number;
-    pricePerItems: number
-    totalPrice: string;
+    price_items: number
+    total_price: string;
 };
 
 @Table({tableName: 'order'})
@@ -24,13 +24,13 @@ export class Order extends Model<Order, OrderCreationAttrs> {
     @Column({
         type: DataType.INTEGER,
     })
-    userId: number;
+    user_id: number;
 
     @ForeignKey(() => Product)
     @Column({
         type: DataType.INTEGER,
     })
-    productId: number;
+    product_id: number;
 
     @Column({
         type: DataType.INTEGER,
@@ -40,12 +40,12 @@ export class Order extends Model<Order, OrderCreationAttrs> {
     @Column({
         type: DataType.INTEGER,
     })
-    pricePerItems: number
+    price_items: number
 
     @Column({
         type: DataType.STRING,
     })
-    totalPrice: string;
+    total_price: string;
 
     @HasMany(() => Payments)
     payments: Payments;

@@ -24,7 +24,7 @@ export class UsersService {
     if (user) {
       throw new BadRequestException('Username already exists!');
     };
-    if (createUserDto.password !== createUserDto.confirmPassword) {
+    if (createUserDto.password !== createUserDto.confirm_password) {
       throw new BadRequestException('Password is not match!');
     };
 
@@ -109,12 +109,12 @@ export class UsersService {
     return response;
   };
 
-  async refreshToken(userId: number, refresh_token: string, res: Response){
+  async refreshToken(user_id: number, refresh_token: string, res: Response){
     const decodedToken = this.jwtService.decode(refresh_token);
-    if(!userId != decodedToken['id']){
+    if(!user_id != decodedToken['id']){
       throw new BadRequestException('User not found');
     };
-    const user = await this.userRepo.findOne({ where: { id: userId } });
+    const user = await this.userRepo.findOne({ where: { id: user_id } });
     if (!user || !user.hashed_refresh_token) {
       throw new BadRequestException('User not found!');
     }

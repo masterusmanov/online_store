@@ -3,7 +3,7 @@ import { Product } from "../../products/models/product.model";
 
 
 interface CategoryCreationAttrs{
-    productCategory: string;
+    product_category: string;
     description: string;
 };
 
@@ -19,7 +19,7 @@ export class Category extends Model<Category, CategoryCreationAttrs> {
     @Column({
         type: DataType.STRING,
     })
-    productCategory: string;
+    product_category: string;
     
     @Column({
         type: DataType.STRING,

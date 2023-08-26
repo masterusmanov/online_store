@@ -3,10 +3,10 @@ import { Category } from "src/category/models/category.model";
 
 
 interface ProductCreationAttrs{
-    productName: string;
+    product_name: string;
     price: string;
     stock: string;
-    categoryId: number;
+    category_id: number;
 };
 
 @Table({tableName: 'product'})
@@ -21,7 +21,7 @@ export class Product extends Model<Product, ProductCreationAttrs> {
     @Column({
         type: DataType.STRING,
     })
-    productName: string;
+    product_name: string;
 
     @Column({
         type: DataType.STRING,
@@ -37,7 +37,7 @@ export class Product extends Model<Product, ProductCreationAttrs> {
     @Column({
         type: DataType.INTEGER,
     })
-    categoryId: number;
+    category_id: number;
 
     @BelongsTo(() => Category)
     category: Category;

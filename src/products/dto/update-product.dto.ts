@@ -4,7 +4,7 @@ import { IsString } from "class-validator";
 export class UpdateProductDto {
     @ApiProperty({ example: 'Computer or phone', description: 'Product name'})
     @IsString()
-    readonly productName?: string;
+    readonly product_name?: string;
 
     @ApiProperty({ example: '2290000 sum or 200$', description: 'Product price'})
     @IsString()
